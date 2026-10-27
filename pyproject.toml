@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verifyloop"
+version = "0.1.0"
+description = "Independent verification and failure triage for long-running agent sessions, with append-only progress tracking."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Nitin Kushwaha" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+verifyloop = "verifyloop.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/verifyloop"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
